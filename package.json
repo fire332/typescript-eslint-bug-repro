@@ -1,0 +1,26 @@
+{
+  "name": "typescript-eslint-bug-repro",
+  "version": "1.0.0",
+  "description": "Bug reproduction for typescript-eslint issue",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint:tsc": "tsc -b",
+    "lint:eslint": "eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=20.11.1"
+  },
+  "engineStrict": true,
+  "devDependencies": {
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3",
+    "typescript-eslint": "^7.5.0"
+  }
+}

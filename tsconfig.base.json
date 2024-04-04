@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // Language
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "esModuleInterop": true,
+
+    // Module handling
+    "composite": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+
+    // Linting
+    "noErrorTruncation": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    "paths": {
+      "@common/*": ["./common/*"],
+    },
+
+    "outDir": "./node_modules/.cache/tsc_build",
+  },
+}
