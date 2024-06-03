@@ -22,5 +22,10 @@
     "prettier": "^3.3.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "8.0.0-alpha.25"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@typescript-eslint/typescript-estree@8.0.0-alpha.25": "patches/@typescript-eslint__typescript-estree@8.0.0-alpha.25.patch"
+    }
   }
 }

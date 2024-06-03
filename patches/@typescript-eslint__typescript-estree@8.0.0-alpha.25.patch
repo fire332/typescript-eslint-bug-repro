@@ -1,0 +1,27 @@
+diff --git a/dist/create-program/createProjectService.js b/dist/create-program/createProjectService.js
+index c1603e1d23fa95616a8ea7b3a742c90239e991e0..7630d9121d88f3daf6858bb106bef93671e6c38d 100644
+--- a/dist/create-program/createProjectService.js
++++ b/dist/create-program/createProjectService.js
+@@ -54,7 +54,21 @@ function createProjectService(optionsRaw, jsDocParsingMode) {
+     if (options.defaultProject) {
+         let configRead;
+         try {
+-            configRead = tsserver.readConfigFile(options.defaultProject, system.readFile);
++            configRead = tsserver.getParsedCommandLineOfConfigFile(
++                options.defaultProject,
++                CORE_COMPILER_OPTIONS,
++                {
++                    onUnRecoverableConfigFileDiagnostic: diag => {
++                      throw new Error(formatDiagnostics([diag])); // ensures that `parsed` is defined.
++                    },
++                    fileExists: fs.existsSync,
++                    getCurrentDirectory: () =>
++                        system.getCurrentDirectory(),
++                    readDirectory: system.readDirectory,
++                    readFile: file => fs.readFileSync(file, 'utf-8'),
++                    useCaseSensitiveFileNames: system.useCaseSensitiveFileNames,
++                },
++            );
+         }
+         catch (error) {
+             throw new Error(`Could not parse default project '${options.defaultProject}': ${error.message}`);
