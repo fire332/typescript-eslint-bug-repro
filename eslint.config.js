@@ -11,7 +11,7 @@ export default tseslint.config(
 
     languageOptions: {
       parserOptions: {
-        EXPERIMENTAL_useProjectService: true,
+        projectService: true,
       },
     },
   },
